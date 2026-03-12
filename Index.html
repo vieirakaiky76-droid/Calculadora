@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#222;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.calculadora{
+    background:#333;
+    padding:20px;
+    border-radius:10px;
+}
+
+#display{
+    width:100%;
+    height:50px;
+    font-size:22px;
+    margin-bottom:10px;
+    text-align:right;
+    padding:5px;
+}
+
+button{
+    width:60px;
+    height:60px;
+    font-size:20px;
+    margin:3px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.numero{background:#555;color:white;}
+.operador{background:orange;color:white;}
+.igual{background:green;color:white;}
+.limpar{background:red;color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="calculadora">
+
+<input type="text" id="display" disabled>
+
+<br>
+
+<button class="numero" onclick="add('7')">7</button>
+<button class="numero" onclick="add('8')">8</button>
+<button class="numero" onclick="add('9')">9</button>
+<button class="operador" onclick="add('/')">÷</button>
+
+<br>
+
+<button class="numero" onclick="add('4')">4</button>
+<button class="numero" onclick="add('5')">5</button>
+<button class="numero" onclick="add('6')">6</button>
+<button class="operador" onclick="add('*')">×</button>
+
+<br>
+
+<button class="numero" onclick="add('1')">1</button>
+<button class="numero" onclick="add('2')">2</button>
+<button class="numero" onclick="add('3')">3</button>
+<button class="operador" onclick="add('-')">−</button>
+
+<br>
+
+<button class="numero" onclick="add('0')">0</button>
+<button class="numero" onclick="add('.')">.</button>
+<button class="igual" onclick="calcular()">=</button>
+<button class="operador" onclick="add('+')">+</button>
+
+<br>
+
+<button class="limpar" onclick="limpar()">C</button>
+
+</div>
+
+<script>
+
+function add(valor){
+document.getElementById("display").value += valor;
+}
+
+function calcular(){
+try{
+document.getElementById("display").value =
+eval(document.getElementById("display").value);
+}catch{
+alert("Conta inválida");
+}
+}
+
+function limpar(){
+document.getElementById("display").value = "";
+}
+
+</script>
+
+</body>
+</html>
